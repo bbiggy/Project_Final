@@ -1,0 +1,45 @@
+#cloud-config
+# hostname: ${hostname}
+# timezone: Asia/Bangkok
+# users:
+#   - default
+#   - name: ${username}
+#     sudo: ALL=(ALL) NOPASSWD:ALL
+#     shell: /bin/bash
+#     ssh_authorized_keys:
+#       - ${ssh_public_key}
+#     passwd: ${hashed_password}
+#     lock_passwd: false
+
+# package_update: true
+# package_upgrade: true
+# packages:
+#   - qemu-guest-agent
+# runcmd:
+#   - systemctl start qemu-guest-agent
+#   - systemctl enable qemu-guest-agent
+#   - echo "Cloud-init configuration applied successfully."
+# This file is used to configure cloud-init on a Proxmox virtual machine.
+
+#cloud-config
+hostname: ${hostname}
+timezone: Asia/Bangkok
+users:
+  - default
+  - name: ${username}
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ${ssh_public_key}
+    passwd: ${hashed_password}
+    lock_passwd: false
+
+package_update: true
+package_upgrade: true
+packages:
+  - qemu-guest-agent
+
+runcmd:
+  - systemctl enable qemu-guest-agent
+  - systemctl start qemu-guest-agent
+  - echo "Cloud-init configuration applied successfully." > /var/log/cloud-init-custom.log

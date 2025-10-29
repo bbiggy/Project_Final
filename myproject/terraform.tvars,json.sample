@@ -1,0 +1,25 @@
+/*
+{
+  "pve_api_url": "https://pve1.local:8006/api2/json",
+  "pve_username": "root@pam",
+  "pve_password": "yourpassword",
+  "vm_configs": [
+    {
+      "name": "vm01",
+      "node": "pve1",
+      "cpu": 2,
+      "memory": 4096,
+      "disk": 20,
+      "template_id": 9000
+    },
+    {
+      "name": "vm02",
+      "node": "pve2",
+      "cpu": 4,
+      "memory": 8192,
+      "disk": 40,
+      "template_id": 9000
+    }
+  ]
+}
+*/

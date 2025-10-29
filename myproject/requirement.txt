@@ -1,0 +1,4 @@
+requests
+passlib
+python-dotenv
+urllib3
